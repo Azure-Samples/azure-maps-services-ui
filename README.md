@@ -29,7 +29,7 @@ Many of these controls can be used directly with the raw responses from the REST
 
 ## Getting started
 
-Download the project and copy the `atlas-services-ui` JavaScript and CSS files into your project. 
+Download the project and copy the `atlas-services-ui` JavaScript and CSS files from the `dist` folder into your project. 
 
 See the [documentation](docs) for more details on a specific feature.
 
