@@ -151,7 +151,7 @@ Take for example the following simmple route UI.
 The following is a breakdown of all the CSS classes available for styling different componets of the UI. 
 
 <p align="center">
-    <img src="images/route-instructions-css.pngg" title="Route instruction UI CSS classes"/>
+    <img src="images/route-instructions-css.png" title="Route instruction UI CSS classes"/>
 </p>
 
 |    | CSS class name | Description |
@@ -203,7 +203,7 @@ Here is a table of all maneuver's and the default built-in icon.
 
 | Maneuver | Icon |
 |----------|------|
-| ARRIVE<br/>DEPART<br/>WAYPOINT_REACHED | <svg height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.5 36.5"><g stroke="none"><path d="M12.25.25a12.2543,12.2543,0,0,0-12,12.4937c0,6.4436,6.4879,12.1093,11.059,22.5641.5493,1.2563,1.3327,1.2563,1.882,0C17.7621,24.8529,24.25,19.1857,24.25,12.7437A12.2543,12.2543,0,0,0,12.25.25Z"/></g></svg> |
+| ARRIVE<br/>DEPART<br/>WAYPOINT_REACHED | <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNC41IDM2LjUiPjxnIHN0cm9rZT0ibm9uZSI+PHBhdGggZD0iTTEyLjI1LjI1YTEyLjI1NDMsMTIuMjU0MywwLDAsMC0xMiwxMi40OTM3YzAsNi40NDM2LDYuNDg3OSwxMi4xMDkzLDExLjA1OSwyMi41NjQxLjU0OTMsMS4yNTYzLDEuMzMyNywxLjI1NjMsMS44ODIsMEMxNy43NjIxLDI0Ljg1MjksMjQuMjUsMTkuMTg1NywyNC4yNSwxMi43NDM3QTEyLjI1NDMsMTIuMjU0MywwLDAsMCwxMi4yNS4yNVoiLz48L2c+PC9zdmc+"/> |
 | BEAR_LEFT | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><g stroke="none"><path d="M15.8 25.1H19V21c0-2.9-.4-4.8-1.7-7.1-.5-1-2.8-4.5-3.1-4.9l-2.7 1.8c.9 1.4 2.6 4 2.9 4.6 1 1.9 1.3 3.3 1.3 5.7v4h.1z"/><path d="M13.7 11l6.2-.6-9.8-5.5V16z"/></g></svg> |
 | BEAR_RIGHT | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><g stroke="none"><path d="M14.2 25.1H11V21c0-2.9.4-4.8 1.7-7.1.5-1 2.8-4.5 3.1-4.9l2.7 1.8c-.9 1.4-2.6 4-2.9 4.6-1 1.9-1.3 3.3-1.3 5.7v4h-.1z"/><path d="M19.9 16l-3.6-5-6.2-.6 9.8-5.5z"/></g></svg> |
 | ENTER_HIGHWAY<br/>ENTER_MOTORWAY<br/>ENTER_FREEWAY<br/>ENTRANCE_RAMP | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path stroke="none" d="M9.6 15L8 21.5c0 .3.1.5.4.5h5l.6-7H9.6zM20.7 15h-4.4l.2 7h5.1c.3 0 .4-.2.4-.5L20.7 15zM26 14v-1H4v1h19.9zM13.8 12l.2-4h-2.8c-.3 0-.5.2-.6.5L9.9 12h3.9zM16.2 12L16 8h2.8c.3 0 .5.2.6.5l.7 3.5h-3.9z"/><path d="M6 13.6h1V16H6zM23 13.6h1V16h-1z"/></svg> |
