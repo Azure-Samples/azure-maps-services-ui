@@ -244,4 +244,4 @@ The following icons will be used in countries where vehicles drive on the left s
 
 The following examples show how to use this UI control: 
 
-- [Simple route instructions](./examples/Simple route instructions.html)
+- [simple-rotue-instructions](../examples/Simple%20route%20instructions.html)
