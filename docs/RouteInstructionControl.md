@@ -3,7 +3,7 @@
 This control makes it easy to render route instructions as a nicely formatted list. The following is a screenshot of how this control renders instructions by default. 
 
 <p align="center">
-![Nicely formatted route instructions](images/sample-route-instructions.png)
+    <img src="images/sample-route-instructions.png" title="Nicely formatted route instructions"/>
 </p>
 
 ## Route instruction control class
@@ -151,7 +151,7 @@ Take for example the following simmple route UI.
 The following is a breakdown of all the CSS classes available for styling different componets of the UI. 
 
 <p align="center">
-![Route instruction UI CSS classes](images/route-instructions-css.png)
+    <img src="images/route-instructions-css.pngg" title="Route instruction UI CSS classes"/>
 </p>
 
 |    | CSS class name | Description |
