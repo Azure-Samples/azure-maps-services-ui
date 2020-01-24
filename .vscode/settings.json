@@ -1,0 +1,10 @@
+// Workspace Settings
+{
+    "editor.rulers": [
+        120
+    ],
+    "editor.formatOnSave": true,
+    "tslint.enable": true,
+    "tslint.run": "onType",
+    "tslint.autoFixOnSave": true,
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simple route instructions</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+
+    <!-- Add references to the module. -->
+    <link rel="stylesheet" href="../dist/atlas-services-ui.min.css" type="text/css" />
+    <script src="../dist/atlas-services-ui.js"></script>
+</head>
+
+<body>
+    <div id="instructionPanel"></div>
+
+    <script>
+        //Create an instance of the route instruction control and bind it to the instructionsPanel div. 
+        var cnt = new atlas.control.RouteInsturctionControl({
+            containerId: 'instructionPanel'
+        });
+
+        //Construct the RouteURL object
+        var routeURL = new atlas.service.RouteURL(atlas.service.MapsURL.newPipeline(new atlas.service.SubscriptionKeyCredential('<Your Azure Maps Key>')));
+
+        //Coordinates of all waypoints to route through. Coordinates are in the format [longitude, latitude].
+        var coordinates = [
+            [-122.125551, 47.674875],  //Start: Redmond, WA
+            [-122.340056, 47.608845]   //End: Seattle, WA
+        ];
+
+        //Route options.
+        var options = {
+            instructionsType: 'tagged'
+        };
+
+        //Calculate a route.
+        routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates, options).then((response) => {
+
+            //Pass the route response into the route instructions panel.
+            cnt.setRoute(response);
+        });
+    </script>
+</body>
+
+</html>
