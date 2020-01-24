@@ -219,7 +219,7 @@ Here is a table of all maneuver's and the default built-in icon.
 | SHARP_LEFT | <img src="images/route-maneuvers/SHARP_LEFT.svg" width="30"/> |
 | SHARP_RIGHT | <img src="images/route-maneuvers/SHARP_RIGHT.svg" width="30"/> |
 | STRAIGHT<br/>FOLLOW | <img src="images/route-maneuvers/STRAIGHT.svg" width="30"/> |
-| SWITCH_MAIN_ROAD<br/>SWITCH_MAIN_ROAD | <img src="images/route-maneuvers/SWITCH_MAIN_ROAD.svg" width="30"/> |
+| SWITCH_MAIN_ROAD<br/>SWITCH_PARALLEL_ROAD | <img src="images/route-maneuvers/SWITCH_MAIN_ROAD.svg" width="30"/> |
 | TAKE_FERRY | <img src="images/route-maneuvers/TAKE_FERRY.svg" width="30"/> |
 | TURN_LEFT | <img src="images/route-maneuvers/TURN_LEFT.svg" width="30"/> |
 | TURN_RIGHT | <img src="images/route-maneuvers/TURN_RIGHT.svg" width="30"/> |
