@@ -2,7 +2,9 @@
 
 This control makes it easy to render route instructions as a nicely formatted list. The following is a screenshot of how this control renders instructions by default. 
 
+<p align="center">
 ![Nicely formatted route instructions](images/sample-route-instructions.png)
+</p>
 
 ## Route instruction control class
 
@@ -142,11 +144,15 @@ Much of the route instructions UI can be styled by overriding CSS styles that ar
 
 Take for example the following simmple route UI.
 
-![Simple route instruction UI](images/basic-route-instruction.png)
+<p align="center">
+<img src="images/basic-route-instruction.png" width="500" title="Simple route instruction UI">
+</p>
 
 The following is a breakdown of all the CSS classes available for styling different componets of the UI. 
 
+<p align="center">
 ![Route instruction UI CSS classes](images/route-instructions-css.png)
+</p>
 
 |    | CSS class name | Description |
 |----|----------------|-------------|
