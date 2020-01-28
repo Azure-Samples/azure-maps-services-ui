@@ -10,12 +10,12 @@ declare namespace atlas {
     export module control {
 
         /** A control for rendering route instructions. */
-        export class RouteInsturctionControl implements azmaps.Control {
+        export class RouteInstructionControl implements azmaps.Control {
             /**
              * A control for rendering route instructions.
              * @param options Options for the control.
              */
-            constructor(options?: RouteInsturctionControlOptions);
+            constructor(options?: RouteInstructionControlOptions);
 
             /**
              * Clears the route instructions from the control. 
@@ -25,12 +25,12 @@ declare namespace atlas {
             /**
              * Gets the options of the route instruction control.
              */
-            public getOptions(): RouteInsturctionControlOptions;
+            public getOptions(): RouteInstructionControlOptions;
 
             /**
             * Sets the options of the route instruction control.
             */
-            public setOptions(options: RouteInsturctionControlOptions): void;
+            public setOptions(options: RouteInstructionControlOptions): void;
             /**
              * Gets the route response information used in the instruction control.
              */
@@ -61,7 +61,7 @@ declare namespace atlas {
     /**
      * Options for the route instuction control.
      */
-    export interface RouteInsturctionControlOptions {
+    export interface RouteInstructionControlOptions {
 
         /**
          * The ID of a div element to render the instructions in.

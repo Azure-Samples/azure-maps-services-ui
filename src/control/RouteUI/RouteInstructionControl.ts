@@ -1,12 +1,12 @@
 import * as azmaps from "azure-maps-control";
 import * as azmapsrest from "azure-maps-rest";
-import { RouteInsturctionControlOptions } from "./RouteInsturctionControlOptions";
 import { Utils } from '../../helpers/Utils';
 import { Localization, Resource } from '../../helpers/Localization';
 import { EmbeddedIcons } from '../../helpers/EmbeddedIcons';
+import { RouteInstructionControlOptions } from "./RouteInstructionControlOptions";
 
 /** A control for rendering route instructions. */
-export class RouteInsturctionControl implements azmaps.Control {
+export class RouteInstructionControl implements azmaps.Control {
 
     /** The control element. */
     private _control: HTMLElement;
@@ -15,7 +15,7 @@ export class RouteInsturctionControl implements azmaps.Control {
     private _mapControlConatiner: HTMLElement;
 
     /** Control options. */
-    private _options: RouteInsturctionControlOptions = {
+    private _options: RouteInstructionControlOptions = {
         displayDisclaimer: true,
         // displayRouteSelector: true,
         groupInstructions: false,
@@ -55,15 +55,8 @@ export class RouteInsturctionControl implements azmaps.Control {
      * A control for rendering route instructions.
      * @param options Options for the control.
      */
-    constructor(options?: RouteInsturctionControlOptions) {
-        if (options) {
-            this.setOptions(options);
-
-            if (!this._options.langauge) {
-                this._options.langauge = Utils.detectLanguage();
-                this._resources = Localization.getResource(this._options.langauge);
-            }
-        }
+    constructor(options?: RouteInstructionControlOptions) {
+        this.setOptions(options || {});
     }
 
     /**
@@ -80,14 +73,14 @@ export class RouteInsturctionControl implements azmaps.Control {
     /**
      * Gets the options of the route instruction control.
      */
-    public getOptions(): RouteInsturctionControlOptions {
+    public getOptions(): RouteInstructionControlOptions {
         return Object.assign({}, this._options);
     }
 
     /**
     * Sets the options of the route instruction control.
     */
-    public setOptions(options: RouteInsturctionControlOptions): void {
+    public setOptions(options: RouteInstructionControlOptions): void {
         if (options) {
             if (typeof options.containerId !== 'undefined' && this._options.containerId !== options.containerId) {
                 if (this._control) {
@@ -121,9 +114,9 @@ export class RouteInsturctionControl implements azmaps.Control {
                 this._options.waypointTextFormat = options.waypointTextFormat;
             }
 
-            if (options.langauge && this._options.langauge !== options.langauge) {
-                this._options.langauge = options.langauge;
-                this._resources = Localization.getResource(options.langauge);
+            if (options.language && this._options.language !== options.language) {
+                this._options.language = options.language;
+                this._resources = null;
             }
 
             if (options.style && this._options.style !== options.style) {
@@ -203,6 +196,19 @@ export class RouteInsturctionControl implements azmaps.Control {
      * Generates the HTML instructions for rendering.
      */
     private _renderRoute() {
+        if (!this._resources) {
+            if (!this._options.language) {
+                this._options.language = Utils.detectLanguage();
+            }
+
+            Localization.getResource(this._options.language).then((res) => {
+                this._resources = res;
+                this._renderRoute();
+            });
+
+            return;
+        }
+
         if (this._routeResponse
             && this._routeResponse.routes
             && this._routeResponse.routes.length > 0
@@ -229,7 +235,7 @@ export class RouteInsturctionControl implements azmaps.Control {
                 var p = (hasIns) ? route.guidance.instructions[0].point : ((route.legs && route.legs.length > 0) ? route.legs[0].points[0] : null);
                 var coord = (p) ? [p.longitude, p.latitude] : null;
 
-                distanceUnits = Utils.detectDistanceUnits((hasIns) ? route.guidance.instructions[0].countryCode : null, this._options.langauge, coord);
+                distanceUnits = Utils.detectDistanceUnits((hasIns) ? route.guidance.instructions[0].countryCode : null, this._options.language, coord);
             }
 
             var insElm: HTMLElement;
@@ -271,7 +277,6 @@ export class RouteInsturctionControl implements azmaps.Control {
                     s += `<span class="route-summary-traffic-time"><span class="${trafficCss}">${trafficMsg}</span> - ${tt} ${this._resources.delay}</span>`;
                 }
 
-                //TODO: add logic.
                 var arrive = Utils.formatArriveDateTime(route.summary.arrivalTime);
 
                 s += `<span class="route-summary-arrive-by"><span class="route-summary-arrive-by-label">${this._resources.arriveBy}:</span> ${arrive}</span>`

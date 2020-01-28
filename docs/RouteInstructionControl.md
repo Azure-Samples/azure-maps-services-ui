@@ -12,18 +12,18 @@ The `RouteInstructionControl` class has the following structure. It can take in 
 
 **Constructor**
 
-> `atlas.controls.RouteInsturctionControl(options?: RouteInsturctionControlOptions)`
+> `atlas.controls.RouteInstuctionControl(options?: RouteInstuctionControlOptions)`
 
 **Methods**
 
 | Name | Return Type | Description | 
 |------|-------------|-------------|
 | `clear()` | | Clears the route instructions from the control.  | 
-| `getOptions()` | `RouteInsturctionControlOptions` | Gets the options of the route instruction control. |
+| `getOptions()` | `RouteInstuctionControlOptions` | Gets the options of the route instruction control. |
 | `getRoute()` | `CalculateRouteDirectionsResponse` | Gets the route response information used in the instruction control. |
 | ` onAdd(map: Map, options?: ControlOptions)`| `HTMLELement` | Initialization method for the control which is called when added to a map. |
 | `onRemove()` | | Method that is called when the control is removed from a map. Should perform any necessary cleanup for the control. |
-| `setOptions(options: RouteInsturctionControlOptions)` | | Sets the options of the route instruction control. |
+| `setOptions(options: RouteInstuctionControlOptions)` | | Sets the options of the route instruction control. |
 | `setRoute(routeResponse: CalculateRouteDirectionsResponse)` | Sets the route response information used in the instruction control. |
 
 ## Route instruction control Options
@@ -35,7 +35,7 @@ The following options can be used to customize how instructions are
 | `containerId` | string | The ID of a div element to render the instructions in. |
 | `displayDisclaimer` | boolean | A boolean indicating whether to display a disclaimer about the accuracy of the route instructions. Default: `true` |
 | `groupInstructions` | boolean | Specifies if instruction should be broken up into groups. Default: `false` |
-| `langauge` | string | A language to localize to. If not specified, will try and detect an appropriate language. |
+| `language` | string | A language to localize to. If not specified, will try and detect an appropriate language. |
 | `routeIndex` | number | Specifies which route instructions to display when there are alternative routes. |
 | `style` | `'light'` \| `'dark'` | The style to apply to the control. This will be ignored when screen in high contrast mode. Can be `'light'` or `'dark'`. Default: `'light'` |
 | `units` | `'auto'` \| `'metric'` \| `'imperial'` | The distance units to display. Can be:<br/> - `'auto'`: will try and detect an appropriate unit.<br/> - `'metric'`: specifies usage of the metric system. Distances are shown using kilometers and meters.<br/> - `'imperial'`: specifies usage of the Imperial (English) system. Distances are shown using miles and feet.<br/>Default: `'auto'` |
@@ -64,7 +64,7 @@ The following example calls the Azure Maps REST route directions service using t
 
     <script>
         //Create an instance of the route instruction control and bind it to the instructionsPanel div. 
-        var cnt = new atlas.control.RouteInsturctionControl({
+        var cnt = new atlas.control.RouteInstuctionControl({
             containerId: 'instructionPanel'
         });
 
@@ -109,7 +109,7 @@ The following example uses the Azure Maps services module to calculate a route a
 
     <script>
         //Create an instance of the route instruction control and bind it to the instructionsPanel div. 
-        var cnt = new atlas.control.RouteInsturctionControl({
+        var cnt = new atlas.control.RouteInstuctionControl({
             containerId: 'instructionPanel'
         });
 

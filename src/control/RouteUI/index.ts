@@ -1,2 +1,2 @@
 export { RouteUIManager } from "./RouteUIManager";
-export { RouteInsturctionControl } from "./RouteInsturctionControl";
+export { RouteInstructionControl } from "./RouteInstructionControl";

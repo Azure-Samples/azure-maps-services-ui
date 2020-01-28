@@ -4,6 +4,8 @@ import { Localization, Resource } from './Localization';
 
 export class Utils {
 
+    private static _currentScriptPath = document.currentScript['src'];
+
     /** 
      * Detects if High Contrast mode is enabled and the style that should be used. Possible values:
      * none: High contrast no detected.
@@ -112,12 +114,14 @@ export class Utils {
      */
     public static formatDistance(distanceMeters: number, units: 'metric' | 'imperial', resources?: Resource): string {
 
-        resources = resources || Localization.getResource('en');
+        var res: any = resources || {
+            ft: "ft",
+            km: "km",
+            mi: "mi",
+            m: "m"
+        };
 
         if (units === 'imperial') {  //miles/feet
-
-            //TODO: localize?
-
             //Use miles for distances of 0.1 miles or more, use feet for shorter distances.
             if (distanceMeters >= 160.9344) { //use miles
                 var miles = distanceMeters * 0.00062137;
@@ -129,10 +133,10 @@ export class Utils {
                     miles = Math.round(miles);
                 }
 
-                return `${miles.toLocaleString()} ${resources.mi}`;
+                return `${miles.toLocaleString()} ${res.mi}`;
             }
 
-            return `${Math.round(distanceMeters * 3.2808399)} ${resources.ft}`;
+            return `${Math.round(distanceMeters * 3.2808399)} ${res.ft}`;
         } else {    //KM/meters
             //Use km for distances of 0.1 km or more, use feet for shorter distances.
             if (distanceMeters >= 100) { //use miles
@@ -145,10 +149,10 @@ export class Utils {
                     km = Math.round(km);
                 }
 
-                return `${km.toLocaleString()} ${resources.km}`;
+                return `${km.toLocaleString()} ${res.km}`;
             }
 
-            return `${distanceMeters} ${resources.m}`;
+            return `${distanceMeters} ${res.m}`;
         }
     }
 
@@ -158,10 +162,17 @@ export class Utils {
      * @returns A formatted timespan string. 
      */
     public static formatTimespan(timeInSeconds: number, resources?: Resource): string {
-        var t = [];
+        var t = '';
         var days: number = 0, hours: number = 0, mins: number = 0;
 
-        resources = resources || Localization.getResource('en');
+        var res: any = resources || {
+            min: "min",
+            mins: "mins",
+            hr: "hr",
+            hrs: "hrs",
+            days: "days",
+            day: "day"
+        };
 
         //If travel time is more than 24 hours, format as 'x day(s) y hour(s)'
         if (timeInSeconds > 86400) {
@@ -176,40 +187,40 @@ export class Utils {
         }
 
         if (days > 0) {
-            t.push(days);
+            t += days;
 
             if (days === 1) {
-                t.push(' ' + resources.day);
+                t += ' ' + res.day;
             } else {
-                t.push(' ' + resources.days);
+                t += ' ' + res.days;
             }
         }
 
         if (hours > 0) {
-            t.push(hours);
+            t += hours;
 
             if (hours === 1) {
-                t.push(' ' + resources.hr);
+                t += ' ' + res.hr;
             } else {
-                t.push(' ' + resources.hrs);
+                t += ' ' + res.hrs;
             }
         }
 
         if (mins > 0) {
-            t.push(mins);
+            t += mins;
 
             if (mins === 1) {
-                t.push(' ' + resources.min);
+                t += ' ' + res.min;
             } else {
-                t.push(' ' + resources.mins);
+                t += ' ' + res.mins;
             }
         }
 
         if (mins === 0 && hours === 0 && days === 0) {
-            t.push('0 ' + resources.min);
+            t += '0 ' + res.min;
         }
 
-        return t.join('');
+        return t;
     }
 
     /**
@@ -234,6 +245,17 @@ export class Utils {
         return d2.toLocaleDateString(undefined, {
             hour: 'numeric', minute: '2-digit', month: 'long', day: 'numeric', timeZoneName: 'short'
         });
+    }
+
+    /** Retrieves the executing file/URL path of the azure-maps-services-ui library. */
+    public static getExecutingPath(): string {
+        var p = this._currentScriptPath;
+
+        if (p.indexOf('/') > -1) {
+            return p.substring(0, p.lastIndexOf("/"));
+        }
+
+        return p;
     }
 
     /////////////////////////////

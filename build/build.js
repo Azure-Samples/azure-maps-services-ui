@@ -48,23 +48,18 @@ let rollupError = false;
     fs.emptyDirSync(distDirPath);
 
     // Get the major and minor version for the output folder name
-    const [majorVersion, minorVersion] = pkg.version.split(".");
+    //const [majorVersion, minorVersion] = pkg.version.split(".");
 
     // File name and path for non-minified browser js
-    const outName = "atlas-services-ui.js";
-    const outMinName = "atlas-services-ui.min.js"
-    const cssOutName = "atlas-services-ui.css";
-    const cssOutMinName = "atlas-services-ui.min.css";
+    const outFilePath = `${distDirPath}/atlas-services-ui.js`;
+    const outMinFilePath = `${distDirPath}/atlas-services-ui.min.js`;
 
-    const outFilePath = `${distDirPath}/${outName}`;
-    const outMinFilePath = `${distDirPath}/${outMinName}`;
-
-    // const exampleInPath = "./examples";
-    //  const exampleOutPath = `${distDirPath}/examples`;
+    const translationsPath = "./build/translations.json";
 
     const cssInPath = "./src/css/atlas-services-ui.less";
-    const cssOutPath = `${distDirPath}/${cssOutName}`;
-    const cssOutMinPath = `${distDirPath}/${cssOutMinName}`;
+    const cssOutPath = `${distDirPath}/atlas-services-ui.css`;
+    const cssOutMinPath = `${distDirPath}/atlas-services-ui.min.css`;
+    const resourcePath = `${distDirPath}/localization`;
 
     const inputPath = "./js/index.js";
 
@@ -73,12 +68,24 @@ let rollupError = false;
     await fs.ensureDir(path.dirname(outMinFilePath));
     await fs.ensureDir(path.dirname(cssOutPath));
     await fs.ensureDir(path.dirname(cssOutMinPath));
+    await fs.ensureDir(path.dirname(resourcePath));
 
-    // Copy the example files.
-    // if (!args.isNpmBuild) {
-    //     console.log("Copying examples");
-    //   await fs.copy(exampleInPath, exampleOutPath);
-    //}
+    const translationFile = await fs.readFile(translationsPath, "utf8");
+    const translations = JSON.parse(translationFile);
+
+    console.log("Generating localization files.");
+
+    //Translations are key value pair; languageCode: localeResources. Parse these into individual JSON files. 
+    var languages = Object.keys(translations);
+    for (var i = 0; i < languages.length; i++) {
+        try {
+            let localPath = `${resourcePath}/${languages[i]}`;
+            await fs.ensureDir(localPath);
+            await fs.writeFile(localPath + "/resource.json", JSON.stringify(translations[languages[i]]));
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     // Compile the less file to css.
     try {

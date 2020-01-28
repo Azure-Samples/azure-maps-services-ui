@@ -1,7 +1,7 @@
 /**
  * Options for the route instuction control.
  */
-export interface RouteInsturctionControlOptions {
+export interface RouteInstructionControlOptions {
 
     /**
      * The ID of a div element to render the instructions in.
@@ -29,7 +29,7 @@ export interface RouteInsturctionControlOptions {
     /**
      * A language to localize to. If not specified, will try and detect an appropriate language.
      */
-    langauge?: string;
+    language?: string;
 
     /**
      * Specifies which route instructions to display when there are alternative routes.
