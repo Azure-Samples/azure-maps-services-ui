@@ -43,7 +43,7 @@ The following options can be used to customize how instructions are
 
 ## How to use
 
-Start by adding a reference to the JavaScript and CSS files for the `atlas-services-ui` module to your web application. Next create an instance of the `RouteInstructionControl` class and eithe rpass in an ID of a HTML element to render the control in as an option, or pass it into the Azure Maps Web SDK map control using the `map.controls.add` function. To render route instructions, pass in the JSON response from the Azure Maps REST route directions service or a `CalculateRouteDirectionsResponse` object from the Azure Maps services module into the `setRoute` function. 
+Start by adding a reference to the JavaScript and CSS files for the `atlas-services-ui` module to your web application. Next create an instance of the `RouteInstructionControl` class and either pass in an ID of a HTML element to render the control in as an option, or pass it into the Azure Maps Web SDK map control using the `map.controls.add` function. To render route instructions, pass in the JSON response from the Azure Maps REST route directions service or a `CalculateRouteDirectionsResponse` object from the Azure Maps services module into the `setRoute` function. 
 
 **Note:** By default the route service only returns the coordinates for a route path. To return instructions you must set the `instructionsType` parameter when requesting a route. This control works best when this parameter is set to `tagged` or `text`.
 
@@ -142,13 +142,13 @@ The following example uses the Azure Maps services module to calculate a route a
 
 Much of the route instructions UI can be styled by overriding CSS styles that are defined in the `atlas-services-ui.css` file.
 
-Take for example the following simmple route UI.
+Take for example the following simple route UI.
 
 <p align="center">
 <img src="images/basic-route-instruction.png" width="500" title="Simple route instruction UI">
 </p>
 
-The following is a breakdown of all the CSS classes available for styling different componets of the UI. 
+The following is a breakdown of all the CSS classes available for styling different components of the UI. 
 
 <p align="center">
     <img src="images/route-instructions-css.png" title="Route instruction UI CSS classes"/>
@@ -170,16 +170,15 @@ The following is a breakdown of all the CSS classes available for styling differ
 | L | `route-instruction-group-time` | The travel time of the group of instructions. |
 | M | `route-instruction-group-distance` | The travel distance of the group of instructions. |
 | N | `route-instruction` | A route instruction. |
-| O | `route-maneuver` | A route manuever icon. |
+| O | `route-maneuver` | A route maneuver icon. |
 | P | `route-instruction-street`<br/>`route-instruction-roadNumber`<br/>`route-instruction-exitNumber`<br/>`route-instruction-signpostText`<br/>`route-instruction-roundaboutExitNumber` | A tagged key phrase in the route instruction message. The `instructionsType` option of the routing service must be set to `tagged` to get these. All XML tags are replaced with a `span` element with one of these CSS class names. |
 | Q | `route-instruction-msg` | Instruction message. |
 | R | `route-instruction-distance` | Instruction distance. |
 | S | `route-disclaimer` | A disclaimer message about route accuracy and obeying traffic laws. |
 
-
 ### Customize icons
 
-All manuever icons styles can be customized using CSS classes `route-maneuver`, `route-maneuver-text` and `route-maneuver-[maneuver]` where `[maneuver]` is the name of the maneuver. For example, an instruction with an 'ARRIVE' maneuver will have the following CSS class `route-maneuver-ARRIVE`. A full list of possible guidance maneuvers is [documented here](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#guidancemaneuver). Instructions for departure, arrivial or intermediate waypoints have a text element rendered above the icon. This can be styled using the `route-maneuver-text` CSS class. All icons are SVG's and common style to customize are the size, fill and stroke colors. For example, the following CSS can be used to make all maneuver icons red.
+All maneuver icons styles can be customized using CSS classes `route-maneuver`, `route-maneuver-text` and `route-maneuver-[maneuver]` where `[maneuver]` is the name of the maneuver. For example, an instruction with an 'ARRIVE' maneuver will have the following CSS class `route-maneuver-ARRIVE`. A full list of possible guidance maneuvers is [documented here](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#guidancemaneuver). Instructions for departure, arrivial or intermediate waypoints have a text element rendered above the icon. This can be styled using the `route-maneuver-text` CSS class. All icons are SVG's and common style to customize are the size, fill and stroke colors. For example, the following CSS can be used to make all maneuver icons red.
 
 ```CSS
 .route-maneuver svg {
