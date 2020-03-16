@@ -161,7 +161,7 @@ let rollupError = false;
         rollupOutputOps = {
             exports: "named",
             file: outFilePath,
-            format: "umd",
+            format: "iife",
             name: "atlas",
             extend: true,
             globals: {

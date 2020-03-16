@@ -16,27 +16,28 @@
   "author": "Microsoft Corporation",
   "license": "MIT",
   "dependencies": {
-    "azure-maps-control": "^2.0.20",
+    "azure-maps-control": "^2.0.24",
     "azure-maps-rest": "^2.0.5"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.136",
     "@types/mocha": "^5.2.6",
-    "@types/puppeteer": "^1.12.1",
-    "fs-extra": "^7.0.1",
-    "less": "^3.9.0",
+    "@types/puppeteer": "^1.20.4",
     "@wikimedia/less-plugin-clean-css": "^1.5.2",
+    "fs-extra": "^7.0.1",
+    "less": "^3.11.1",
     "lodash": "^4.17.15",
-    "mocha": "^5.2.0",
-    "mocha-parallel-tests": "^2.0.6-alpha.3",
+    "minimist": "^1.2.5",
+    "mocha": "^7.1.0",
+    "mocha-parallel-tests": "^2.3.0",
     "puppeteer": "^1.13.0",
-    "rollup": "^1.17.0",
+    "rollup": "^1.32.1",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.2",
     "tslint": "^5.15.0",
-    "typescript": "^3.6.3",
-    "yargs": "^13.2.1"
+    "typescript": "^3.8.3",
+    "yargs": "^13.3.2"
   },
   "files": [
     "typings/**/*",

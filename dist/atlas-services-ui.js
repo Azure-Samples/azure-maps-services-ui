@@ -22,11 +22,8 @@ MIT License
     SOFTWARE
 */
 
-(function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('azure-maps-control')) :
-    typeof define === 'function' && define.amd ? define(['exports', 'azure-maps-control'], factory) :
-    (global = global || self, factory(global.atlas = global.atlas || {}, global.atlas));
-}(this, (function (exports, azmaps) { 'use strict';
+(function (exports, azmaps) {
+    'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -973,6 +970,4 @@ MIT License
 
     exports.control = control;
 
-    Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
+}(this.atlas = this.atlas || {}, atlas));
