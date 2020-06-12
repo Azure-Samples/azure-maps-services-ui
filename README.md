@@ -1,5 +1,5 @@
 ---
-topic: sample
+page_type: sample
 description: A set of web UI controls that wrap the Azure Maps REST services. 
 languages:
 - javascript
@@ -9,9 +9,10 @@ products:
 - azure-maps
 ---
 
-**Project Status:** Initial development in progress
 
 # Azure Maps Services UI module
+
+**Project Status:** Initial development in progress
 
 This project provides a set of web UI controls that wrap the Azure Maps REST services. These controls are both accessible and customizable. 
 Many of these controls can be used directly with the raw responses from the REST services, while add functionality on top of the Azure Maps Web SDK. 
@@ -20,7 +21,7 @@ Many of these controls can be used directly with the raw responses from the REST
 
 - Route service controls
     - [Route instructions control](docs/RouteInstructionControl.md) - generate nicely formatted instructions.
-- Accessibile:
+- Accessible:
     - Multi-input support: mouse, keyboard, touch
     - High contrast support
     - Screen reader support (aria labels)

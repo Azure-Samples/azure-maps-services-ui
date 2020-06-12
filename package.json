@@ -29,11 +29,11 @@
     "lodash": "^4.17.15",
     "mocha": "^7.1.1",
     "mocha-parallel-tests": "^2.3.0",
-    "puppeteer": "^1.13.0",
+    "puppeteer": "^2.1.1",
     "rollup": "^1.32.1",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-plugin-uglify": "^6.0.4",
     "tslint": "^5.15.0",
     "typescript": "^3.8.3",
     "yargs": "^13.3.2"
