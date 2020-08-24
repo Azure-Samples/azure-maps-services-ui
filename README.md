@@ -20,7 +20,7 @@ Many of these controls can be used directly with the raw responses from the REST
 ## Features
 
 - Route service controls
-    - [Route instructions control](docs/RouteInstructionControl.md) - generate nicely formatted instructions.
+    - [Route instructions control](https://github.com/Azure-Samples/azure-maps-services-ui/tree/master/docs/RouteInstructionControl.md) - generate nicely formatted instructions.
 - Accessible:
     - Multi-input support: mouse, keyboard, touch
     - High contrast support
@@ -30,13 +30,14 @@ Many of these controls can be used directly with the raw responses from the REST
 
 ## Getting started
 
-Download the project and copy the `atlas-services-ui` JavaScript and CSS files from the `dist` folder into your project. 
+Download the project and copy the `atlas-services-ui` JavaScript and CSS files and the `localization` folder from the `dist` folder into your project. 
 
-See the [documentation](docs) for more details on a specific feature.
+See the [documentation](https://github.com/Azure-Samples/azure-maps-services-ui/tree/master/docs) for more details on a specific feature.
 
 ## Roadmap
 
 - Search bar with autocomplete option
+- Search form with autocomplete option
 - Route UI manager that manages rendering of routes on a map and coordinates interactions with the route instructions control. 
 - Route input control that provides a user input form for calculating routes.
 - Print route dialog that connects to the route manager and captures map screen shots as well as instrucitons, but little else. 
@@ -46,9 +47,13 @@ See the [documentation](docs) for more details on a specific feature.
 
 ## Related Projects
 
+* [Azure Maps Animation module](https://github.com/Azure-Samples/azure-maps-animations)
 * [Azure Maps Web SDK Samples](https://github.com/Azure-Samples/AzureMapsCodeSamples)
 * [Azure Maps Gov Cloud Web SDK Samples](https://github.com/Azure-Samples/AzureMapsGovCloudCodeSamples)
 * [Azure Maps & Azure Active Directory Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+
+
+* [List of open-source Azure Maps projects](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 
 ## Additional Resources
 
@@ -62,7 +67,7 @@ See the [documentation](docs) for more details on a specific feature.
 ## Contributing
 
 We welcome contributions. Feel free to submit code samples, file issues and pull requests on the repo and we'll address them as we can. 
-Learn more about how you can help on our [Contribution Rules & Guidelines](CONTRIBUTING.md). 
+Learn more about how you can help on our [Contribution Rules & Guidelines](https://github.com/Azure-Samples/azure-maps-services-ui/blob/master/CONTRIBUTING.md). 
 
 You can reach out to us anytime with questions and suggestions using our communities below:
 * [MSDN Forums](https://social.msdn.microsoft.com/Forums/home?forum=azurelbs)
@@ -77,4 +82,4 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 MIT
  
-See [License](LICENSE.md) for full license text.
+See [License](https://github.com/Azure-Samples/azure-maps-services-ui/blob/master/LICENSE.md) for full license text.
