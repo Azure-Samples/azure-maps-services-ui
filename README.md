@@ -60,7 +60,7 @@ See the [documentation](https://github.com/Azure-Samples/azure-maps-services-ui/
 * [Azure Maps (main site)](https://azure.com/maps)
 * [Azure Maps Documentation](https://docs.microsoft.com/azure/azure-maps/index)
 * [Azure Maps Blog](https://azure.microsoft.com/blog/topics/azure-maps/)
-* [MSDN Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelbs)
+* [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-maps.html)
 * [StackOverflow [azure-maps]](https://stackoverflow.com/questions/tagged/azure-maps)
 * [Azure Maps feedback](https://feedback.azure.com/forums/909172-azure-maps)
 
@@ -70,7 +70,7 @@ We welcome contributions. Feel free to submit code samples, file issues and pull
 Learn more about how you can help on our [Contribution Rules & Guidelines](https://github.com/Azure-Samples/azure-maps-services-ui/blob/master/CONTRIBUTING.md). 
 
 You can reach out to us anytime with questions and suggestions using our communities below:
-* [MSDN Forums](https://social.msdn.microsoft.com/Forums/home?forum=azurelbs)
+* [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-maps.html)
 * [StackOverflow [azure-maps]](https://stackoverflow.com/questions/tagged/azure-maps)
 * [Azure Maps feedback](https://feedback.azure.com/forums/909172-azure-maps)
 
