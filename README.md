@@ -50,6 +50,7 @@ See the [documentation](https://github.com/Azure-Samples/azure-maps-services-ui/
 **Open Azure Maps Web SDK modules**
 
 * [Azure Maps Animation module](https://github.com/Azure-Samples/azure-maps-animations)
+* [Azure Maps Geolocation Control module](https://github.com/Azure-Samples/azure-maps-geolocation-control)
 * [Azure Maps Sync Map module](https://github.com/Azure-Samples/azure-maps-sync-maps)
 
 **Additional projects**
