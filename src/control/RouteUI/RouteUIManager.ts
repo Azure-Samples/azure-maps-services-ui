@@ -95,12 +95,12 @@ export class RouteUIManager {
                 //Generate instructions.
                 if (route.guidance && route.guidance.instructions) {
 
-                    var traveledDistance = 0;
-                    var traveledTime = 0;
+                    let traveledDistance = 0;
+                    let traveledTime = 0;
 
-                    for (var i = 0, len = route.guidance.instructions.length; i < len; i++) {
-                        var ins = route.guidance.instructions[i];
-                        var insElm = document.createElement('div');
+                    for (let i = 0, len = route.guidance.instructions.length; i < len; i++) {
+                        let ins = route.guidance.instructions[i];
+                        let insElm = document.createElement('div');
                         insElm.className = 'azure-maps-route-instruction';
                         insElm.innerHTML = ins.message;
 
@@ -125,7 +125,7 @@ export class RouteUIManager {
     };
 
     private _directionsError = (error?: any) => {
-        var msg: string;
+        let msg: string;
 
         if (error.msg) {
 

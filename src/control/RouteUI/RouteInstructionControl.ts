@@ -82,7 +82,10 @@ export class RouteInstructionControl implements azmaps.Control {
     */
     public setOptions(options: RouteInstructionControlOptions): void {
         if (options) {
-            if (typeof options.containerId !== 'undefined' && this._options.containerId !== options.containerId) {
+            let o = this._options;
+            let no: RouteInstructionControlOptions = {};
+
+            if (typeof options.containerId !== 'undefined' && o.containerId !== options.containerId) {
                 if (this._control) {
                     this._control.remove();
                 }
@@ -91,41 +94,43 @@ export class RouteInstructionControl implements azmaps.Control {
                     this._mapControlConatiner.remove();
                 }
 
-                this._options.containerId = options.containerId;
+                no.containerId = options.containerId;
             }
 
-            if (typeof options.displayDisclaimer === 'boolean' && this._options.displayDisclaimer !== options.displayDisclaimer) {
-                this._options.displayDisclaimer = options.displayDisclaimer;
+            if (typeof options.displayDisclaimer === 'boolean') {
+                no.displayDisclaimer = options.displayDisclaimer;
             }
 
-            /* if (typeof options.displayRouteSelector === 'boolean' && this._options.displayRouteSelector !== options.displayRouteSelector) {
-                 this._options.displayRouteSelector = options.displayRouteSelector;
+            /* if (typeof options.displayRouteSelector === 'boolean' {
+                 no.displayRouteSelector = options.displayRouteSelector;
              }*/
 
-            if (typeof options.routeIndex === 'boolean' && this._options.routeIndex !== options.routeIndex) {
-                this._options.routeIndex = options.routeIndex;
+            if (typeof options.routeIndex === 'boolean') {
+                no.routeIndex = options.routeIndex;
             }
 
-            if (typeof options.groupInstructions === 'boolean' && this._options.groupInstructions !== options.groupInstructions) {
-                this._options.groupInstructions = options.groupInstructions;
+            if (typeof options.groupInstructions === 'boolean') {
+                no.groupInstructions = options.groupInstructions;
             }
 
-            if (options.waypointTextFormat && this._options.waypointTextFormat !== options.waypointTextFormat) {
-                this._options.waypointTextFormat = options.waypointTextFormat;
+            if (options.waypointTextFormat) {
+                no.waypointTextFormat = options.waypointTextFormat;
             }
 
-            if (options.language && this._options.language !== options.language) {
-                this._options.language = options.language;
+            if (options.language && o.language !== options.language) {
+                no.language = options.language;
                 this._resources = null;
             }
 
-            if (options.style && this._options.style !== options.style) {
-                this._options.style = options.style;
+            if (options.style) {
+                no.style = options.style;
             }
 
-            if (options.units && this._options.units !== options.units) {
-                this._options.units = options.units;
+            if (options.units) {
+                no.units = options.units;
             }
+
+            Object.assign(this._options, no);
         }
 
         this._renderRoute();
@@ -152,23 +157,25 @@ export class RouteInstructionControl implements azmaps.Control {
      */
     public onAdd(map: azmaps.Map, options?: azmaps.ControlOptions): HTMLElement {
         this._map = map;
+        let mcc = this._mapControlConatiner;
 
         //Remove the control from the map incase it has been added previously.
-        if (this._mapControlConatiner) {
-            this._mapControlConatiner.remove();
+        if (mcc) {
+            mcc.remove();
         }
 
         if (!this._options.containerId) {
             //Create the container for display on the map. 
 
-            this._mapControlConatiner = document.createElement('div');
-            this._mapControlConatiner.classList.add('route-instruction-map-container');
-            // this._mapControlConatiner.setAttribute('aria-label', this._resource.title);
-            this._mapControlConatiner.style.flexDirection = 'column';
+            let mcc = document.createElement('div');
+            mcc.classList.add('route-instruction-map-container');
+            // mcc.setAttribute('aria-label', this._resource.title);
+            mcc.style.flexDirection = 'column';
+            this._mapControlConatiner = mcc;
         }
 
         this._renderRoute();
-        return this._mapControlConatiner;
+        return mcc;
     }
 
     /**
@@ -407,7 +414,7 @@ export class RouteInstructionControl implements azmaps.Control {
      * @returns A boolean indicating if the instruction is for a waypoint.
      */
     private _isWaypoint(instruction: azmapsrest.Models.RouteResultInstruction): boolean {
-        var m: string = instruction.maneuver;
+        let m: string = instruction.maneuver;
         switch (m) {
             case 'ARRIVE':
             case 'ARRIVE_LEFT':
@@ -440,13 +447,13 @@ export class RouteInstructionControl implements azmaps.Control {
         waypointText: string): HTMLDivElement {
 
         //Item container
-        var insItemElm = document.createElement('div');
+        let insItemElm = document.createElement('div');
         insItemElm.classList.add('route-instruction');
 
         //Maneuver icon
-        var icon = EmbeddedIcons.getRouteInstructionIcon(instruction);
+        let icon = EmbeddedIcons.getRouteInstructionIcon(instruction);
 
-        var maneuver = document.createElement('div');
+        let maneuver = document.createElement('div');
         maneuver.classList.add('route-maneuver');
         maneuver.setAttribute('aria-hidden', 'true');
 
@@ -460,17 +467,17 @@ export class RouteInstructionControl implements azmaps.Control {
         insItemElm.appendChild(maneuver);
 
         if (waypointText) {
-            var waypointTextElm = document.createElement('span');
+            let waypointTextElm = document.createElement('span');
             waypointTextElm.classList.add('route-maneuver-text');
             waypointTextElm.innerText = waypointText;
             insItemElm.appendChild(waypointTextElm);
         }
 
         //Message
-        var insText = document.createElement('div');
+        let insText = document.createElement('div');
         insText.classList.add('route-instruction-msg');
 
-        var msg = instruction.message;
+        let msg = instruction.message;
 
 
         msg = this._styleTaggedMessage(msg);
@@ -480,7 +487,7 @@ export class RouteInstructionControl implements azmaps.Control {
 
         //Distance
         if (distance > 0) {
-            var disText = document.createElement('div');
+            let disText = document.createElement('div');
             disText.classList.add('route-instruction-distance');
             disText.innerHTML = Utils.formatDistance(distance, distanceUnits);
 

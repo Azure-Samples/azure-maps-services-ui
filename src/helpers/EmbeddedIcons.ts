@@ -9,9 +9,9 @@ export class EmbeddedIcons {
      * @returns An SVG icon for a route instruction.
      */
     public static getRouteInstructionIcon(instruction?: azmapsrest.Models.RouteResultInstruction): string {
-        var ds = instruction.drivingSide || 'RIGHT';
-        var m: string = instruction.maneuver;
-        var icon: string;
+        let ds = instruction.drivingSide || 'RIGHT';
+        let m: string = instruction.maneuver;
+        let icon: string;
 
         if (m) {
 

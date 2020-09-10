@@ -34,8 +34,12 @@ export class Localization {
             language = Utils.detectLanguage(language);
         }
 
-        if (language && language.indexOf('-') > 0) {
-            language = language.substring(0, language.indexOf('-')).toLowerCase();
+        if (language) {
+            language = language.toLowerCase();
+
+            if (language.indexOf('-') > 0) {
+                language = language.substring(0, language.indexOf('-'));
+            }
         }
 
         if (!language || this._supportedLanguages.indexOf(language) === -1) {
@@ -46,11 +50,11 @@ export class Localization {
             return this._resxCache[language];
         }
 
-        var res = await fetch(`${this._localizationFolderPath}/${language}/resource.json`);
+        let res = await fetch(`${this._localizationFolderPath}/${language}/resource.json`);
 
         if (res.ok) {
-            var r = res.json();
-            var r2 = await r;
+            let r = res.json();
+            let r2 = await r;
 
             this._resxCache[language] = r2;
 

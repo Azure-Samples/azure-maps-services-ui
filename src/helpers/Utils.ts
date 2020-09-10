@@ -1,6 +1,6 @@
 import * as azmaps from "azure-maps-control";
 import * as azmapsrest from "azure-maps-rest";
-import { Localization, Resource } from './Localization';
+import { Resource } from './Localization';
 
 export class Utils {
 
@@ -16,17 +16,17 @@ export class Utils {
      */
     public static highContrastStyle(): 'none' | 'light' | 'dark' {
         //Try and detect CSS media high contrast styles.
-        var elms = document.getElementsByClassName('atlas-accessibility-placeholder');
+        let elms = document.getElementsByClassName('atlas-accessibility-placeholder');
 
         if (!elms || elms.length === 0) {
-            var elm = document.createElement('div');
+            let elm = document.createElement('div');
             elm.classList.add('atlas-accessibility-placeholder');
             document.body.appendChild(elm);
             elms = document.getElementsByClassName('atlas-accessibility-placeholder');
         }
 
         if (elms && elms.length > 0) {
-            var zIndex = window.getComputedStyle(elms[0], null).getPropertyValue('z-index');
+            let zIndex = window.getComputedStyle(elms[0], null).getPropertyValue('z-index');
 
             switch (zIndex) {
                 case '2':   //Black on white
@@ -38,7 +38,7 @@ export class Utils {
         }
 
         //Detect Chrome extension for high contrast. The extention adds an 'hc' attribute to the HTML tag of the page.
-        var htmlTag = document.getElementsByTagName('html');
+        let htmlTag = document.getElementsByTagName('html');
         if (htmlTag[0].getAttribute('hc') !== null) {
             return 'dark';
         }
@@ -114,7 +114,7 @@ export class Utils {
      */
     public static formatDistance(distanceMeters: number, units: 'metric' | 'imperial', resources?: Resource): string {
 
-        var res: any = resources || {
+        let res: any = resources || {
             ft: "ft",
             km: "km",
             mi: "mi",
@@ -124,7 +124,7 @@ export class Utils {
         if (units === 'imperial') {  //miles/feet
             //Use miles for distances of 0.1 miles or more, use feet for shorter distances.
             if (distanceMeters >= 160.9344) { //use miles
-                var miles = distanceMeters * 0.00062137;
+                let miles = distanceMeters * 0.00062137;
 
                 //Show one decimal is less than 100 miles.
                 if (miles < 100) {
@@ -140,7 +140,7 @@ export class Utils {
         } else {    //KM/meters
             //Use km for distances of 0.1 km or more, use feet for shorter distances.
             if (distanceMeters >= 100) { //use miles
-                var km = distanceMeters * 0.001;
+                let km = distanceMeters * 0.001;
 
                 //Show one decimal if less than 100 km.
                 if (km < 100) {
@@ -162,10 +162,10 @@ export class Utils {
      * @returns A formatted timespan string. 
      */
     public static formatTimespan(timeInSeconds: number, resources?: Resource): string {
-        var t = '';
-        var days: number = 0, hours: number = 0, mins: number = 0;
+        let t = '';
+        let days: number = 0, hours: number = 0, mins: number = 0;
 
-        var res: any = resources || {
+        let res: any = resources || {
             min: "min",
             mins: "mins",
             hr: "hr",
@@ -229,11 +229,11 @@ export class Utils {
      * @returns A formatted arrival time.
      */
     public static formatArriveDateTime(dateString: string): string {
-        var d1: any = new Date();
-        var d2: any = new Date(Date.parse(dateString));
-        var diff = d2 - d1;
+        let d1: any = new Date();
+        let d2: any = new Date(Date.parse(dateString));
+        let diff = d2 - d1;
 
-        var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+        let days = Math.ceil(diff / (1000 * 60 * 60 * 24));
 
         //Check to see if the arrival time is today. 
         if (days === 0 || (days === 1 && d1.getDate() === d2.getDate())) {
@@ -249,7 +249,7 @@ export class Utils {
 
     /** Retrieves the executing file/URL path of the azure-maps-services-ui library. */
     public static getExecutingPath(): string {
-        var p = this._currentScriptPath;
+        let p = this._currentScriptPath;
 
         if (p.indexOf('/') > -1) {
             return p.substring(0, p.lastIndexOf("/"));
@@ -263,7 +263,7 @@ export class Utils {
     /////////////////////////////
 
     private static _getBrowserLocale(): string {
-        var locale = (navigator.languages && navigator.languages[0]) || navigator.language || navigator['userLanguage'];
+        let locale = (navigator.languages && navigator.languages[0]) || navigator.language || navigator['userLanguage'];
 
         if (locale) {
             //Handle complex locales by removing extra dashed info and making it look like a language code. 
