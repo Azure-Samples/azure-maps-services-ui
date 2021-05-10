@@ -12,8 +12,8 @@
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
     <!-- Add references to the module. -->
-    <link rel="stylesheet" href="../dist/atlas-services-ui.min.css" type="text/css" />
-    <script src="../dist/atlas-services-ui.js"></script>
+    <link rel="stylesheet" href="../dist/azure-maps-services-ui.min.css" type="text/css" />
+    <script src="../dist/azure-maps-services-ui.js"></script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
         });
 
         //Construct the RouteURL object
-        var routeURL = new atlas.service.RouteURL(atlas.service.MapsURL.newPipeline(new atlas.service.SubscriptionKeyCredential('<Your Azure Maps Key>')));
+        var routeURL = new atlas.service.RouteURL(atlas.service.MapsURL.newPipeline(new atlas.service.SubscriptionKeyCredential('szw7L2B0SNkxRapuYhVLZUimqMUHfraJD-joQ65gd4M')));
 
         //Coordinates of all waypoints to route through. Coordinates are in the format [longitude, latitude].
         var coordinates = [

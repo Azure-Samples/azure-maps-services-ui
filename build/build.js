@@ -51,14 +51,14 @@ let rollupError = false;
     //const [majorVersion, minorVersion] = pkg.version.split(".");
 
     // File name and path for non-minified browser js
-    const outFilePath = `${distDirPath}/atlas-services-ui.js`;
-    const outMinFilePath = `${distDirPath}/atlas-services-ui.min.js`;
+    const outFilePath = `${distDirPath}/azure-maps-services-ui.js`;
+    const outMinFilePath = `${distDirPath}/azure-maps-services-ui.min.js`;
 
     const translationsPath = "./build/translations.json";
 
-    const cssInPath = "./src/css/atlas-services-ui.less";
-    const cssOutPath = `${distDirPath}/atlas-services-ui.css`;
-    const cssOutMinPath = `${distDirPath}/atlas-services-ui.min.css`;
+    const cssInPath = "./src/css/azure-maps-services-ui.less";
+    const cssOutPath = `${distDirPath}/azure-maps-services-ui.css`;
+    const cssOutMinPath = `${distDirPath}/azure-maps-services-ui.min.css`;
     const resourcePath = `${distDirPath}/localization`;
 
     const inputPath = "./js/index.js";
