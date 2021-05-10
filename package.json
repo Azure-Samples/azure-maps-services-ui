@@ -20,17 +20,16 @@
   "author": "Microsoft Corporation",
   "license": "MIT",
   "dependencies": {
+    "@azure/ms-rest-js": "^1.9.0",
     "azure-maps-control": "^2.0.25",
     "azure-maps-rest": "^2.0.5"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.136",
     "@types/mocha": "^5.2.6",
     "@types/puppeteer": "^1.20.4",
     "@wikimedia/less-plugin-clean-css": "^1.5.2",
     "fs-extra": "^7.0.1",
     "less": "^3.11.1",
-    "lodash": "^4.17.19",
     "mocha": "^7.1.1",
     "mocha-parallel-tests": "^2.3.0",
     "puppeteer": "^2.1.1",

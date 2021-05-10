@@ -449,8 +449,11 @@ MIT License
                             if (!language) {
                                 language = Utils.detectLanguage(language);
                             }
-                            if (language && language.indexOf('-') > 0) {
-                                language = language.substring(0, language.indexOf('-')).toLowerCase();
+                            if (language) {
+                                language = language.toLowerCase();
+                                if (language.indexOf('-') > 0) {
+                                    language = language.substring(0, language.indexOf('-'));
+                                }
                             }
                             if (!language || this._supportedLanguages.indexOf(language) === -1) {
                                 language = 'en';
@@ -630,40 +633,43 @@ MIT License
         */
         RouteInstructionControl.prototype.setOptions = function (options) {
             if (options) {
-                if (typeof options.containerId !== 'undefined' && this._options.containerId !== options.containerId) {
+                var o = this._options;
+                var no = {};
+                if (typeof options.containerId !== 'undefined' && o.containerId !== options.containerId) {
                     if (this._control) {
                         this._control.remove();
                     }
                     if (this._mapControlConatiner && options.containerId !== null) {
                         this._mapControlConatiner.remove();
                     }
-                    this._options.containerId = options.containerId;
+                    no.containerId = options.containerId;
                 }
-                if (typeof options.displayDisclaimer === 'boolean' && this._options.displayDisclaimer !== options.displayDisclaimer) {
-                    this._options.displayDisclaimer = options.displayDisclaimer;
+                if (typeof options.displayDisclaimer === 'boolean') {
+                    no.displayDisclaimer = options.displayDisclaimer;
                 }
-                /* if (typeof options.displayRouteSelector === 'boolean' && this._options.displayRouteSelector !== options.displayRouteSelector) {
-                     this._options.displayRouteSelector = options.displayRouteSelector;
+                /* if (typeof options.displayRouteSelector === 'boolean' {
+                     no.displayRouteSelector = options.displayRouteSelector;
                  }*/
-                if (typeof options.routeIndex === 'boolean' && this._options.routeIndex !== options.routeIndex) {
-                    this._options.routeIndex = options.routeIndex;
+                if (typeof options.routeIndex === 'boolean') {
+                    no.routeIndex = options.routeIndex;
                 }
-                if (typeof options.groupInstructions === 'boolean' && this._options.groupInstructions !== options.groupInstructions) {
-                    this._options.groupInstructions = options.groupInstructions;
+                if (typeof options.groupInstructions === 'boolean') {
+                    no.groupInstructions = options.groupInstructions;
                 }
-                if (options.waypointTextFormat && this._options.waypointTextFormat !== options.waypointTextFormat) {
-                    this._options.waypointTextFormat = options.waypointTextFormat;
+                if (options.waypointTextFormat) {
+                    no.waypointTextFormat = options.waypointTextFormat;
                 }
-                if (options.language && this._options.language !== options.language) {
-                    this._options.language = options.language;
+                if (options.language && o.language !== options.language) {
+                    no.language = options.language;
                     this._resources = null;
                 }
-                if (options.style && this._options.style !== options.style) {
-                    this._options.style = options.style;
+                if (options.style) {
+                    no.style = options.style;
                 }
-                if (options.units && this._options.units !== options.units) {
-                    this._options.units = options.units;
+                if (options.units) {
+                    no.units = options.units;
                 }
+                Object.assign(this._options, no);
             }
             this._renderRoute();
         };
@@ -686,19 +692,21 @@ MIT License
          */
         RouteInstructionControl.prototype.onAdd = function (map, options) {
             this._map = map;
+            var mcc = this._mapControlConatiner;
             //Remove the control from the map incase it has been added previously.
-            if (this._mapControlConatiner) {
-                this._mapControlConatiner.remove();
+            if (mcc) {
+                mcc.remove();
             }
             if (!this._options.containerId) {
                 //Create the container for display on the map. 
-                this._mapControlConatiner = document.createElement('div');
-                this._mapControlConatiner.classList.add('route-instruction-map-container');
-                // this._mapControlConatiner.setAttribute('aria-label', this._resource.title);
-                this._mapControlConatiner.style.flexDirection = 'column';
+                var mcc_1 = document.createElement('div');
+                mcc_1.classList.add('route-instruction-map-container');
+                // mcc.setAttribute('aria-label', this._resource.title);
+                mcc_1.style.flexDirection = 'column';
+                this._mapControlConatiner = mcc_1;
             }
             this._renderRoute();
-            return this._mapControlConatiner;
+            return mcc;
         };
         /**
          * Method that is called when the control is removed from a map. Should perform any necessary cleanup for the control.
