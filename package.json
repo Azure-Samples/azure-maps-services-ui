@@ -30,7 +30,7 @@
     "@wikimedia/less-plugin-clean-css": "^1.5.2",
     "fs-extra": "^7.0.1",
     "less": "^3.11.1",
-    "mocha": "^7.1.1",
+    "mocha": "^10.2.0",
     "mocha-parallel-tests": "^2.3.0",
     "puppeteer": "^2.1.1",
     "rollup": "^1.32.1",
