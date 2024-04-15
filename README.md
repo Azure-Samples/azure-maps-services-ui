@@ -12,7 +12,7 @@ products:
 
 # Azure Maps Services UI module
 
-**Project Status:** Initial development in progress
+**Project Status:** Archived due to retirement plan of Azure Maps Services Module. Better to create a new repo based on the Azure Maps REST SDK.
 
 This project provides a set of web UI controls that wrap the Azure Maps REST services. These controls are both accessible and customizable. 
 Many of these controls can be used directly with the raw responses from the REST services, while add functionality on top of the Azure Maps Web SDK. 
